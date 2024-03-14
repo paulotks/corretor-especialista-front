@@ -3,11 +3,35 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import {
+  createTheme,
+  ThemeProvider,
+} from '@mui/material/styles';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#AF1917',
+    },
+    secondary: {
+      main: '#AA296F'
+    }
+  },
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <LocalizationProvider>
+        <App />
+      </LocalizationProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
